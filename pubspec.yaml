@@ -45,11 +45,13 @@ flutter:
 
   assets:
     - assets/images/background.jpg
+    - assets/images/bloodbank.jpg
     - assets/images/donor.jpg
     - assets/images/patient.jpg
     - assets/images/signin.png
     - assets/images/signup.png
     - assets/images/register.png
+    - assets/images/admin.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

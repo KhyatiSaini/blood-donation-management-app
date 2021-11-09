@@ -1,8 +1,25 @@
+import 'package:blood_donation_management_app/widgets/bloodBankPageComponents/bloodBankCard.dart';
 import 'package:flutter/material.dart';
 
 class BloodBankPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('blood bank'),);
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      color: Colors.white,
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Image(image: AssetImage('assets/images/bloodbank.jpg')),
+          ),
+          Align(
+              alignment: Alignment.centerLeft,
+              child: BloodBankCard()
+          ),
+        ],
+      ),
+    );
   }
 }
