@@ -27,6 +27,8 @@ class _SignUpCardState extends State<SignUpCard> {
   @override
   void initState() {
     showPassword = false;
+    email = "";
+    password = "";
     super.initState();
   }
 
@@ -85,8 +87,10 @@ class _SignUpCardState extends State<SignUpCard> {
                   }
                   return null;
                 },
-                onFieldSubmitted: (input) {
-                  email = input;
+                onChanged: (input) {
+                  setState(() {
+                    email = input;
+                  });
                 },
               ),
               SizedBox(height: 15),
@@ -130,8 +134,10 @@ class _SignUpCardState extends State<SignUpCard> {
                   }
                   return null;
                 },
-                onFieldSubmitted: (input) {
-                  password = input;
+                onChanged: (input) {
+                  setState(() {
+                    password = input;
+                  });
                 },
               ),
               SizedBox(height: 50),
@@ -139,7 +145,7 @@ class _SignUpCardState extends State<SignUpCard> {
                 onPressed: () {
                   // TODO: validate the form fields and authenticate the user
                   if (_key.currentState?.validate() == true) {
-                    print('email $email and password $password');
+
                   }
                   print('sign up');
                 },
