@@ -1,8 +1,9 @@
-import 'package:blood_donation_management_app/pages/homePage.dart';
+import 'package:blood_donation_management_app/pages/containerScreen.dart';
 import 'package:blood_donation_management_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: ContainerScreen(),
       routes: routes,
     );
   }

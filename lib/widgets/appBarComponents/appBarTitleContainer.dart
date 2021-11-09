@@ -11,7 +11,7 @@ class AppBarTitleContainer extends StatelessWidget {
       child: Text(
         text.toUpperCase(),
         style: TextStyle(
-            fontWeight: FontWeight.bold, color: Colors.blueGrey.shade400, fontSize: 20),
+            fontWeight: FontWeight.bold, color: Colors.blueGrey.shade300, fontSize: 20),
       ),
     );
   }

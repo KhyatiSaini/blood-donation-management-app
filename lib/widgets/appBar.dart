@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:blood_donation_management_app/widgets/appBarComponents/appBarTextContainer.dart';
 
 class CustomAppBar extends StatefulWidget {
+  final Function callback;
+  const CustomAppBar(this.callback);
+
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
 }
@@ -34,6 +37,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   setState(() {
                     index = 0;
                   });
+                  widget.callback(index);
                 },
                 child: AppBarTextContainer(
                     'Home', index == 0 ? Colors.grey.shade300 : Colors.grey)),
@@ -42,6 +46,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   setState(() {
                     index = 1;
                   });
+                  widget.callback(index);
                 },
                 child: AppBarTextContainer(
                     'Donor', index == 1 ? Colors.grey.shade300 : Colors.grey)),
@@ -50,6 +55,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   setState(() {
                     index = 2;
                   });
+                  widget.callback(index);
                 },
                 child: AppBarTextContainer('Patient',
                     index == 2 ? Colors.grey.shade300 : Colors.grey)),
@@ -58,6 +64,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   setState(() {
                     index = 3;
                   });
+                  widget.callback(index);
                 },
                 child: AppBarTextContainer('Blood Bank',
                     index == 3 ? Colors.grey.shade300 : Colors.grey)),
@@ -66,9 +73,11 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   setState(() {
                     index = 4;
                   });
+                  widget.callback(index);
                 },
                 child: AppBarTextContainer(
                     'Admin', index == 4 ? Colors.grey.shade300 : Colors.grey)),
+            SizedBox(width: 30),
           ],
         ),
       ),
