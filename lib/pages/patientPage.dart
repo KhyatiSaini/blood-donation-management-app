@@ -1,5 +1,6 @@
-import 'package:blood_donation_management_app/widgets/patientPageComponents/patientCard.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/patientPageComponents/patientCard.dart';
 
 class PatientPage extends StatelessWidget {
   @override

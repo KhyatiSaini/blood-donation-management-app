@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AdminCard extends StatefulWidget {
+import '../../utilities/constants.dart';
+import '../../utilities/displayToast.dart';
+
+class AdminLoginCard extends StatefulWidget {
   @override
-  _AdminCardState createState() => _AdminCardState();
+  _AdminLoginCardState createState() => _AdminLoginCardState();
 }
 
-class _AdminCardState extends State<AdminCard> {
+class _AdminLoginCardState extends State<AdminLoginCard> {
   GlobalKey<FormState> _key = GlobalKey<FormState>();
   TextEditingController _adminTextController = TextEditingController();
   TextEditingController _passwordTextController = TextEditingController();
@@ -131,9 +134,10 @@ class _AdminCardState extends State<AdminCard> {
               SizedBox(height: 50),
               MaterialButton(
                 onPressed: () {
-                  // TODO: validate the form fields and authenticate the user
                   if (_key.currentState?.validate() == true) {
-
+                    if (admin == adminName && password == adminPassword) {
+                      displayToast("Admin Sign-in successful");
+                    }
                   }
                 },
                 color: Colors.redAccent,

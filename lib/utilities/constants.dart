@@ -1,2 +1,2 @@
-const admin = 'admin';
-const password = 'password';
+const adminName = 'admin';
+const adminPassword = 'password';

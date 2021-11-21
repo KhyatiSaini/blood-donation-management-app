@@ -1,5 +1,6 @@
-import 'package:blood_donation_management_app/widgets/donorPageComponents/donorCard.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/donorPageComponents/donorCard.dart';
 
 class DonorPage extends StatelessWidget {
   @override

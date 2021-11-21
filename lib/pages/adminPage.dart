@@ -1,5 +1,7 @@
-import 'package:blood_donation_management_app/widgets/adminPageComponents/adminCard.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/adminPageComponents/adminWidget.dart';
+import '../widgets/adminPageComponents/adminLoginCard.dart';
 
 class AdminPage extends StatelessWidget {
   @override
@@ -8,9 +10,9 @@ class AdminPage extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       color: Colors.white,
-      child:Align(
-          alignment: Alignment.center,
-          child: AdminCard()
+      child: Align(
+        alignment: Alignment.center,
+        child: AdminWidget(),
       ),
     );
   }

@@ -1,6 +1,7 @@
-import 'package:blood_donation_management_app/widgets/homePageComponents/signInCard.dart';
-import 'package:blood_donation_management_app/widgets/homePageComponents/signUpCard.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/homePageComponents/signInCard.dart';
+import '../widgets/homePageComponents/signUpCard.dart';
 
 class HomePage extends StatefulWidget {
   @override

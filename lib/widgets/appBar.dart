@@ -1,7 +1,7 @@
-import 'package:blood_donation_management_app/widgets/appBarComponents/appBarTitleContainer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:blood_donation_management_app/widgets/appBarComponents/appBarTextContainer.dart';
+
+import 'appBarComponents/appBarTextContainer.dart';
+import 'appBarComponents/appBarTitleContainer.dart';
 
 class CustomAppBar extends StatefulWidget {
   final Function callback;

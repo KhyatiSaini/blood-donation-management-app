@@ -1,10 +1,11 @@
-import 'package:blood_donation_management_app/pages/adminPage.dart';
-import 'package:blood_donation_management_app/pages/bloodBankPage.dart';
-import 'package:blood_donation_management_app/pages/donorPage.dart';
-import 'package:blood_donation_management_app/pages/homePage.dart';
-import 'package:blood_donation_management_app/pages/patientPage.dart';
 import 'package:flutter/material.dart';
-import 'package:blood_donation_management_app/widgets/appBar.dart';
+
+import 'homePage.dart';
+import 'adminPage.dart';
+import 'donorPage.dart';
+import 'patientPage.dart';
+import 'bloodBankPage.dart';
+import '../widgets/appBar.dart';
 
 class ContainerScreen extends StatefulWidget {
   static final String routeName = '/container';

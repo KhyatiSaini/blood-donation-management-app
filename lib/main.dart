@@ -1,6 +1,7 @@
-import 'package:blood_donation_management_app/pages/containerScreen.dart';
-import 'package:blood_donation_management_app/routes/routes.dart';
 import 'package:flutter/material.dart';
+
+import 'routes/routes.dart';
+import 'pages/containerScreen.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
