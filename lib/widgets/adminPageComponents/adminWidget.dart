@@ -1,47 +1,35 @@
-import 'dart:convert';
-import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 
-import 'customCard.dart';
+import '../../models/enums.dart';
+import 'patientsListWidget.dart';
+import 'selectionCardWidget.dart';
 
-class AdminWidget extends StatelessWidget {
+class AdminWidget extends StatefulWidget {
+  @override
+  State<AdminWidget> createState() => _AdminWidgetState();
+}
+
+class _AdminWidgetState extends State<AdminWidget> {
+  adminPageWidget pageWidget = adminPageWidget.selection;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 180, horizontal: 50),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Spacer(),
-          CustomCard(
-            imageAsset: 'assets/images/patient.jpg',
-            caption: 'Patients',
-            onTap: testApi,
-          ),
-          SizedBox(
-            width: 40,
-          ),
-          CustomCard(
-            imageAsset: 'assets/images/donor.jpg',
-            caption: 'Donors',
-            onTap: testApi,
-          ),
-          Spacer(),
-        ],
-      ),
+      child: (pageWidget == adminPageWidget.patient
+          ? PatientsListWidget(
+              callback: updateUI,
+            )
+          : (pageWidget == adminPageWidget.donor
+              ? Text('donor')
+              : SelectionCardWidget(
+                  callback: updateUI,
+                ))),
     );
   }
 
-  void testApi() async {
-    Uri uri = Uri.parse('http://localhost:3000/test/');
-    final response = await get(
-      uri,
-      headers: {
-        "Accept": "application/json",
-        "Access-Control_Allow_Origin": "*"
-      },
-    );
-    final json = jsonDecode(response.body);
-    print('${response.statusCode} $json');
+  updateUI(adminPageWidget widget) {
+    setState(() {
+      pageWidget = widget;
+    });
   }
 }
