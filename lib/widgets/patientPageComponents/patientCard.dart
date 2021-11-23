@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/adminProvider.dart';
 
 class PatientCard extends StatefulWidget {
   @override
@@ -12,10 +15,11 @@ class _PatientCardState extends State<PatientCard> {
   TextEditingController _medicalConditionController = TextEditingController();
   TextEditingController _bloodGroupController = TextEditingController();
 
-  late String name, medicalCondition, bloodGroup;
+  late String id, name, medicalCondition, bloodGroup;
 
   @override
   void initState() {
+    id = "";
     name = "";
     medicalCondition = "";
     bloodGroup = "";
@@ -43,12 +47,49 @@ class _PatientCardState extends State<PatientCard> {
           key: _key,
           child: SingleChildScrollView(
             child: Container(
-              height: 600,
+              height: 650,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset('assets/images/register.png'),
                   SizedBox(height: 25),
+                  TextFormField(
+                    controller: _nameController,
+                    cursorHeight: 20,
+                    cursorColor: Colors.redAccent,
+                    decoration: InputDecoration(
+                      hintText: "Id",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                      prefixIcon:
+                          Icon(Icons.admin_panel_settings, color: Colors.grey.shade400),
+                    ),
+                    validator: (input) {
+                      if (input!.isEmpty || input.trim().length == 0) {
+                        return "This field is required";
+                      }
+                      return null;
+                    },
+                    onChanged: (input) {
+                      setState(() {
+                        id = input;
+                      });
+                    },
+                  ),
+                  SizedBox(height: 15),
                   TextFormField(
                     controller: _nameController,
                     cursorHeight: 20,
@@ -70,7 +111,8 @@ class _PatientCardState extends State<PatientCard> {
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(color: Colors.grey.shade400),
                       ),
-                      prefixIcon: Icon(Icons.account_box, color: Colors.grey.shade400),
+                      prefixIcon:
+                          Icon(Icons.account_box, color: Colors.grey.shade400),
                     ),
                     validator: (input) {
                       if (input!.isEmpty || input.trim().length == 0) {
@@ -107,7 +149,8 @@ class _PatientCardState extends State<PatientCard> {
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(color: Colors.grey.shade400),
                       ),
-                      prefixIcon: Icon(Icons.notes, color: Colors.grey.shade400),
+                      prefixIcon:
+                          Icon(Icons.notes, color: Colors.grey.shade400),
                     ),
                     validator: (input) {
                       if (input!.isEmpty || input.trim().length == 0) {
@@ -142,7 +185,8 @@ class _PatientCardState extends State<PatientCard> {
                         borderRadius: BorderRadius.circular(10.0),
                         borderSide: BorderSide(color: Colors.grey.shade400),
                       ),
-                      prefixIcon: Icon(Icons.bloodtype, color: Colors.grey.shade400),
+                      prefixIcon:
+                          Icon(Icons.bloodtype, color: Colors.grey.shade400),
                     ),
                     validator: (input) {
                       if (input!.isEmpty || input.trim().length == 0) {
@@ -160,19 +204,24 @@ class _PatientCardState extends State<PatientCard> {
                   MaterialButton(
                     onPressed: () {
                       // TODO: validate the form fields and save the details to database
-                      if (_key.currentState?.validate() == true) {
-
-                      }
+                      if (_key.currentState?.validate() == true) {}
                     },
                     color: Colors.redAccent,
                     minWidth: double.infinity,
                     height: 50,
                     padding: EdgeInsets.symmetric(vertical: 10),
-                    child: Text(
-                      'Register as a Patient'.toUpperCase(),
-                      style: TextStyle(
-                          color: Colors.white, fontSize: 18, letterSpacing: 1),
-                    ),
+                    child: Consumer<AdminProvider>(
+                        builder: (context, provider, child) {
+                      return Text(
+                        (provider.adminAuthStatus)
+                            ? 'Save patient details'.toUpperCase()
+                            : 'Register as a Patient'.toUpperCase(),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            letterSpacing: 1),
+                      );
+                    }),
                   ),
                 ],
               ),

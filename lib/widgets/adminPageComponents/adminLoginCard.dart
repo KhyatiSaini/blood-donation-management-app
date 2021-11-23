@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../utilities/constants.dart';
-import '../../utilities/displayToast.dart';
+import '../../providers/adminProvider.dart';
 
 class AdminLoginCard extends StatefulWidget {
   @override
@@ -135,9 +135,8 @@ class _AdminLoginCardState extends State<AdminLoginCard> {
               MaterialButton(
                 onPressed: () {
                   if (_key.currentState?.validate() == true) {
-                    if (admin == adminName && password == adminPassword) {
-                      displayToast("Admin Sign-in successful");
-                    }
+                    final provider = Provider.of<AdminProvider>(context, listen: false);
+                    provider.adminSignIn(admin, password);
                   }
                 },
                 color: Colors.redAccent,

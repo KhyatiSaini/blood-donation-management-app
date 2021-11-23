@@ -31,6 +31,14 @@ class SelectionCardWidget extends StatelessWidget {
             caption: 'Donors',
             onTap: () => callback(adminPageWidget.donor),
           ),
+          SizedBox(
+            width: 40,
+          ),
+          CustomCard(
+            imageAsset: 'assets/images/bloodbank.jpg',
+            caption: 'Blood Banks',
+            onTap: () => callback(adminPageWidget.bloodBank),
+          ),
           Spacer(),
         ],
       ),

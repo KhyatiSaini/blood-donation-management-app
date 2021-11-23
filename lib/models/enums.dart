@@ -1,5 +1,6 @@
 enum adminPageWidget {
   donor,
   patient,
-  selection
+  selection,
+  bloodBank,
 }
