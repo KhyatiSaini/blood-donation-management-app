@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../models/enums.dart';
-import 'patientsListWidget.dart';
 import 'selectionCardWidget.dart';
+import 'donorRecordComponents/donorListWidget.dart';
+import 'patientRecordComponents/patientsListWidget.dart';
 
 class AdminWidget extends StatefulWidget {
   @override
@@ -20,7 +21,9 @@ class _AdminWidgetState extends State<AdminWidget> {
               callback: updateUI,
             )
           : (pageWidget == adminPageWidget.donor
-              ? Text('donor')
+              ? DonorListWidget(
+                  callback: updateUI,
+                )
               : SelectionCardWidget(
                   callback: updateUI,
                 ))),
