@@ -16,10 +16,30 @@ class BloodBankHeaderRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          HeaderTextWidget(text: 'name'),
-          HeaderTextWidget(text: 'staff details'),
-          HeaderTextWidget(text: 'operating hours'),
-          HeaderTextWidget(text: 'address'),
+          Container(
+            width: 200,
+            child: HeaderTextWidget(
+              text: 'name',
+            ),
+          ),
+          Container(
+            width: 200,
+            child: HeaderTextWidget(
+              text: 'staff details',
+            ),
+          ),
+          Container(
+            width: 200,
+            child: HeaderTextWidget(
+              text: 'operating hours',
+            ),
+          ),
+          Container(
+            width: 200,
+            child: HeaderTextWidget(
+              text: 'address',
+            ),
+          ),
         ],
       ),
     );

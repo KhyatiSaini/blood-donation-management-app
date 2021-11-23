@@ -16,12 +16,42 @@ class DonorHeaderRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          HeaderTextWidget(text: 'id'),
-          HeaderTextWidget(text: 'name'),
-          HeaderTextWidget(text: 'medical condition'),
-          HeaderTextWidget(text: 'blood group'),
-          HeaderTextWidget(text: 'contact number'),
-          HeaderTextWidget(text: 'latest donation date')
+          Container(
+            width: 150,
+            child: HeaderTextWidget(
+              text: 'id',
+            ),
+          ),
+          Container(
+            width: 150,
+            child: HeaderTextWidget(
+              text: 'name',
+            ),
+          ),
+          Container(
+            width: 150,
+            child: HeaderTextWidget(
+              text: 'medical condition',
+            ),
+          ),
+          Container(
+            width: 150,
+            child: HeaderTextWidget(
+              text: 'blood group',
+            ),
+          ),
+          Container(
+            width: 150,
+            child: HeaderTextWidget(
+              text: 'contact number',
+            ),
+          ),
+          Container(
+            width: 150,
+            child: HeaderTextWidget(
+              text: 'latest donation date',
+            ),
+          )
         ],
       ),
     );

@@ -33,17 +33,29 @@ class BloodBankRowContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            NormalTextWidget(
-              text: name,
+            Container(
+              width: 200,
+              child: NormalTextWidget(
+                text: name,
+              ),
             ),
-            NormalTextWidget(
-              text: staffDetails,
+            Container(
+              width: 200,
+              child: NormalTextWidget(
+                text: staffDetails,
+              ),
             ),
-            NormalTextWidget(
-              text: operatingHours,
+            Container(
+              width: 200,
+              child: NormalTextWidget(
+                text: operatingHours,
+              ),
             ),
-            NormalTextWidget(
-              text: address,
+            Container(
+              width: 200,
+              child: NormalTextWidget(
+                text: address,
+              ),
             ),
           ],
         ),

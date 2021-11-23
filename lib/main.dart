@@ -4,6 +4,9 @@ import 'package:provider/provider.dart';
 import 'routes/routes.dart';
 import 'pages/containerScreen.dart';
 import 'providers/adminProvider.dart';
+import 'providers/donorProvider.dart';
+import 'providers/patientProvider.dart';
+import 'providers/bloodBankProvider.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +21,15 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => AdminProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PatientProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => DonorProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => BloodBankProvider(),
         ),
       ],
       child: MaterialApp(

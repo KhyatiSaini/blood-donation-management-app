@@ -8,7 +8,7 @@ class DonorRowContainer extends StatelessWidget {
   final String medicalReport;
   final String bloodGroup;
   final String contactNumber;
-  final DateTime latestDonationDate;
+  final String latestDonationDate;
 
   DonorRowContainer({
     required this.id,
@@ -16,7 +16,7 @@ class DonorRowContainer extends StatelessWidget {
     required this.medicalReport,
     required this.bloodGroup,
     required this.contactNumber,
-    required this.latestDonationDate
+    this.latestDonationDate = "-"
   });
 
   @override
@@ -37,23 +37,41 @@ class DonorRowContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            NormalTextWidget(
-              text: id,
+            Container(
+              width: 150,
+              child: NormalTextWidget(
+                text: id,
+              ),
             ),
-            NormalTextWidget(
-              text: name,
+            Container(
+              width: 150,
+              child: NormalTextWidget(
+                text: name,
+              ),
             ),
-            NormalTextWidget(
-              text: medicalReport,
+            Container(
+              width: 150,
+              child: NormalTextWidget(
+                text: medicalReport,
+              ),
             ),
-            NormalTextWidget(
-              text: bloodGroup,
+            Container(
+              width: 150,
+              child: NormalTextWidget(
+                text: bloodGroup,
+              ),
             ),
-            NormalTextWidget(
-              text: contactNumber,
+            Container(
+              width: 150,
+              child: NormalTextWidget(
+                text: contactNumber,
+              ),
             ),
-            NormalTextWidget(
-              text: latestDonationDate.toUtc().toString().substring(0, 19),
+            Container(
+              width: 150,
+              child: NormalTextWidget(
+                text: latestDonationDate,
+              ),
             ),
           ],
         ),
