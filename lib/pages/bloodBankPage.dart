@@ -1,3 +1,4 @@
+import 'package:blood_donation_management_app/widgets/bloodBankPageComponents/bloodBankRecordComponents/bloodBankListWidget.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/bloodBankPageComponents/bloodBankCard.dart';
@@ -15,10 +16,11 @@ class BloodBankPage extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: Image(image: AssetImage('assets/images/bloodbank.jpg')),
           ),
-          Align(
-              alignment: Alignment.centerLeft,
-              child: BloodBankCard()
-          ),
+          BloodBankListWidget(),
+          // Align(
+          //     alignment: Alignment.centerLeft,
+          //     child: BloodBankCard()
+          // ),
         ],
       ),
     );

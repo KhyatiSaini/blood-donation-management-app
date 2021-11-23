@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'patientHeaderRow.dart';
-import '../../../models/enums.dart';
 import 'patientRowContainer.dart';
+import '../../../models/enums.dart';
 
 class PatientsListWidget extends StatelessWidget {
   final Function callback;
@@ -56,11 +56,6 @@ class PatientsListWidget extends StatelessWidget {
                 },
                 itemCount: 50,
               ),
-            ),
-            Container(
-              height: 3,
-              color: Colors.redAccent,
-              margin: EdgeInsets.symmetric(horizontal: 52),
             ),
             SizedBox(
               height: 70,

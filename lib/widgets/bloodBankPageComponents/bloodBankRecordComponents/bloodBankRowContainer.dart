@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../normalTextWidget.dart';
+import '../../adminPageComponents/normalTextWidget.dart';
 
-class DonorRowContainer extends StatelessWidget {
-  final String id;
+class BloodBankRowContainer extends StatelessWidget {
   final String name;
-  final String medicalReport;
-  final String bloodGroup;
-  final String contactNumber;
-  final DateTime latestDonationDate;
+  final String staffDetails;
+  final String operatingHours;
+  final String address;
 
-  DonorRowContainer({
-    required this.id,
+  BloodBankRowContainer({
     required this.name,
-    required this.medicalReport,
-    required this.bloodGroup,
-    required this.contactNumber,
-    required this.latestDonationDate
+    required this.staffDetails,
+    required this.operatingHours,
+    required this.address,
   });
 
   @override
@@ -38,22 +34,16 @@ class DonorRowContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             NormalTextWidget(
-              text: id,
-            ),
-            NormalTextWidget(
               text: name,
             ),
             NormalTextWidget(
-              text: medicalReport,
+              text: staffDetails,
             ),
             NormalTextWidget(
-              text: bloodGroup,
+              text: operatingHours,
             ),
             NormalTextWidget(
-              text: contactNumber,
-            ),
-            NormalTextWidget(
-              text: latestDonationDate.toUtc().toString().substring(0, 19),
+              text: address,
             ),
           ],
         ),

@@ -19,7 +19,7 @@ class PatientRowContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.fromLTRB(3, 3, 3, 0),
+      padding: EdgeInsets.fromLTRB(3, 3, 3, 1.5),
       decoration: BoxDecoration(
         color: Colors.redAccent,
         borderRadius: BorderRadius.circular(10),

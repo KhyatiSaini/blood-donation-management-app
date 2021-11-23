@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'adminLoginCard.dart';
 import '../../models/enums.dart';
 import 'selectionCardWidget.dart';
 import 'donorRecordComponents/donorListWidget.dart';
-import 'patientRecordComponents/patientsListWidget.dart';
+import 'patientRecordComponents/patientListWidget.dart';
 
 class AdminWidget extends StatefulWidget {
   @override
@@ -12,10 +13,17 @@ class AdminWidget extends StatefulWidget {
 
 class _AdminWidgetState extends State<AdminWidget> {
   adminPageWidget pageWidget = adminPageWidget.selection;
+  bool adminSignedIn = false;
+
+  @override
+  void initState() {
+    adminSignedIn = false;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return !adminSignedIn ? AdminLoginCard(): Container(
       child: (pageWidget == adminPageWidget.patient
           ? PatientsListWidget(
               callback: updateUI,

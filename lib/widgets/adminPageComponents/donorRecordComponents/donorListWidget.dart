@@ -10,6 +10,7 @@ class DonorListWidget extends StatelessWidget {
   DonorListWidget({
     required this.callback,
   });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -57,11 +58,6 @@ class DonorListWidget extends StatelessWidget {
                 },
                 itemCount: 50,
               ),
-            ),
-            Container(
-              height: 3,
-              color: Colors.redAccent,
-              margin: EdgeInsets.symmetric(horizontal: 52),
             ),
             SizedBox(
               height: 70,
