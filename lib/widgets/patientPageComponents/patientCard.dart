@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../models/patient.dart';
 import '../../providers/adminProvider.dart';
+import '../../providers/patientProvider.dart';
 
 class PatientCard extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class PatientCard extends StatefulWidget {
 class _PatientCardState extends State<PatientCard> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
 
+  TextEditingController _idController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
   TextEditingController _medicalConditionController = TextEditingController();
   TextEditingController _bloodGroupController = TextEditingController();
@@ -54,7 +57,7 @@ class _PatientCardState extends State<PatientCard> {
                   Image.asset('assets/images/register.png'),
                   SizedBox(height: 25),
                   TextFormField(
-                    controller: _nameController,
+                    controller: _idController,
                     cursorHeight: 20,
                     cursorColor: Colors.redAccent,
                     decoration: InputDecoration(
@@ -203,8 +206,15 @@ class _PatientCardState extends State<PatientCard> {
                   SizedBox(height: 50),
                   MaterialButton(
                     onPressed: () {
-                      // TODO: validate the form fields and save the details to database
-                      if (_key.currentState?.validate() == true) {}
+                      if (_key.currentState?.validate() == true) {
+                        Patient patient = Patient(int.parse(id), name, medicalCondition, bloodGroup);
+                        final provider = Provider.of<PatientProvider>(context, listen: false);
+                        provider.createPatient(patient.toJson());
+                        _idController.text = "";
+                        _nameController.text = "";
+                        _bloodGroupController.text = "";
+                        _medicalConditionController.text = "";
+                      }
                     },
                     color: Colors.redAccent,
                     minWidth: double.infinity,

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 
 import '../models/patient.dart';
 import '../utilities/constants.dart';
+import '../utilities/displayToast.dart';
 
 class PatientProvider extends ChangeNotifier {
   List<Patient> patients = [];
@@ -12,11 +13,12 @@ class PatientProvider extends ChangeNotifier {
   Future fetchPatients() async {
     List<Patient> list = [];
     try {
-      final response = await get(Uri.parse('${api}patients'),
-          headers: {
-            "Accept": "application/json",
-            "Access-Control_Allow_Origin": "*",
-          }
+      final response = await get(
+        Uri.parse('${api}patients'),
+        headers: {
+          "Accept": "application/json",
+          "Access-Control_Allow_Origin": "*",
+        },
       );
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
@@ -28,6 +30,29 @@ class PatientProvider extends ChangeNotifier {
         patients = list;
         isListFetched = true;
         notifyListeners();
+      }
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future createPatient(Map<dynamic, dynamic> patient) async {
+    try {
+      final response = await post(
+        Uri.parse('${api}patients'),
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+          "Accept": "application/json",
+          "Access-Control_Allow_Origin": "*",
+        },
+        body: jsonEncode(patient),
+      );
+
+      if (response.statusCode == 200) {
+        displayToast("Data inserted successfully");
+      }
+      else {
+        displayToast("Some error occurred");
       }
     } catch (e) {
       throw e;

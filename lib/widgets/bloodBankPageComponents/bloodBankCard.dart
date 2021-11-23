@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../models/bloodBank.dart';
+import '../../providers/bloodBankProvider.dart';
 
 class BloodBankCard extends StatefulWidget {
   @override
@@ -196,9 +200,15 @@ class _BloodBankCardState extends State<BloodBankCard> {
                   SizedBox(height: 50),
                   MaterialButton(
                     onPressed: () {
-                      // TODO: validate the form fields and save the details to database
                       if (_key.currentState?.validate() == true) {
+                        BloodBank bloodBank = BloodBank(name, int.parse(staffDetails), operatingHours, address);
+                        final provider = Provider.of<BloodBankProvider>(context, listen: false);
+                        provider.createBloodBank(bloodBank.toJson());
 
+                        _nameController.text = "";
+                        _staffDetailsController.text = "";
+                        _operatingHoursController.text = "";
+                        _addressController.text = "";
                       }
                     },
                     color: Colors.redAccent,

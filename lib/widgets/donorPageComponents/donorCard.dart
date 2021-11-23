@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../models/donor.dart';
+import '../../providers/donorProvider.dart';
 import '../../providers/adminProvider.dart';
 
 class DonorCard extends StatefulWidget {
@@ -11,6 +13,7 @@ class DonorCard extends StatefulWidget {
 class _DonorCardState extends State<DonorCard> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
 
+  TextEditingController _idController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
   TextEditingController _medicalReportController = TextEditingController();
   TextEditingController _bloodGroupController = TextEditingController();
@@ -56,7 +59,7 @@ class _DonorCardState extends State<DonorCard> {
                   Image.asset('assets/images/register.png'),
                   SizedBox(height: 25),
                   TextFormField(
-                    controller: _nameController,
+                    controller: _idController,
                     cursorHeight: 20,
                     cursorColor: Colors.redAccent,
                     decoration: InputDecoration(
@@ -238,8 +241,17 @@ class _DonorCardState extends State<DonorCard> {
                   SizedBox(height: 50),
                   MaterialButton(
                     onPressed: () {
-                      // TODO: validate the form fields and add the details
-                      if (_key.currentState?.validate() == true) {}
+                      if (_key.currentState?.validate() == true) {
+                        Donor donor = Donor(int.parse(id), name, medicalReport, bloodGroup, contact, null);
+                        final provider = Provider.of<DonorProvider>(context, listen: false);
+                        provider.createDonor(donor.toJson());
+
+                        _idController.text = "";
+                        _nameController.text = "";
+                        _contactController.text = "";
+                        _bloodGroupController.text = "";
+                        _medicalReportController.text = "";
+                      }
                     },
                     color: Colors.redAccent,
                     minWidth: double.infinity,

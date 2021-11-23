@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../models/donor.dart';
 import '../utilities/constants.dart';
+import '../utilities/displayToast.dart';
 
 class DonorProvider extends ChangeNotifier {
   List<Donor> donors = [];
@@ -28,6 +29,29 @@ class DonorProvider extends ChangeNotifier {
         donors = list;
         isListFetched = true;
         notifyListeners();
+      }
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future createDonor(Map<dynamic, dynamic> donor) async {
+    try {
+      final response = await post(
+        Uri.parse('${api}donors'),
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+          "Accept": "application/json",
+          "Access-Control_Allow_Origin": "*",
+        },
+        body: jsonEncode(donor),
+      );
+
+      if (response.statusCode == 200) {
+        displayToast("Data inserted successfully");
+      }
+      else {
+        displayToast("Some error occurred");
       }
     } catch (e) {
       throw e;
