@@ -3,4 +3,5 @@ enum adminPageWidget {
   patient,
   selection,
   bloodBank,
+  donationRecord,
 }

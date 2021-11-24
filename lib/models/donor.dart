@@ -4,7 +4,7 @@ class Donor {
   final String medicalReport;
   final String bloodGroup;
   final String contactNumber;
-  final DateTime? latestDonationDate;
+  final String? latestDonationDate;
 
   Donor(
     this.id,
@@ -21,7 +21,7 @@ class Donor {
         medicalReport = json['medical_report'],
         bloodGroup = json['blood_group'],
         contactNumber = json['contact_number'],
-        latestDonationDate = json['latest_donation_date'];
+        latestDonationDate = json['latest_donation_date'] as String?;
 
   Map toJson() {
     return {

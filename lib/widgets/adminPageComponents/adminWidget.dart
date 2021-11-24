@@ -4,6 +4,7 @@ import '../../models/enums.dart';
 import 'selectionCardWidget.dart';
 import 'donorRecordComponents/donorListWidget.dart';
 import 'patientRecordComponents/patientListWidget.dart';
+import 'donationRecordComponents/donationRecordWidget.dart';
 import '../bloodBankPageComponents/bloodBankRecordComponents/bloodBankListWidget.dart';
 
 class AdminWidget extends StatefulWidget {
@@ -35,9 +36,13 @@ class _AdminWidgetState extends State<AdminWidget> {
                       displayBackButton: true,
                       callback: updateUI,
                     )
-                  : SelectionCardWidget(
-                      callback: updateUI,
-                    ))),
+                  : (pageWidget == adminPageWidget.donationRecord)
+                      ? DonationRecordWidget(
+                          callback: updateUI,
+                        )
+                      : SelectionCardWidget(
+                          callback: updateUI,
+                        ))),
     );
   }
 

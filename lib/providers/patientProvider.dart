@@ -50,6 +50,7 @@ class PatientProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         displayToast("Data inserted successfully");
+        fetchPatients();
       }
       else {
         displayToast("Some error occurred");

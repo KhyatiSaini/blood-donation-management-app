@@ -49,6 +49,31 @@ class DonorProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         displayToast("Data inserted successfully");
+        fetchDonors();
+      }
+      else {
+        displayToast("Some error occurred");
+      }
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future updateDonorRecordById(String id, DateTime date) async {
+    try {
+      final response = await put(
+        Uri.parse('${api}donors/$id'),
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+          "Accept": "application/json",
+          "Access-Control_Allow_Origin": "*",
+        },
+        body: jsonEncode({'date': date}),
+      );
+
+      if (response.statusCode == 200) {
+        displayToast("Data updated successfully");
+        fetchDonors();
       }
       else {
         displayToast("Some error occurred");

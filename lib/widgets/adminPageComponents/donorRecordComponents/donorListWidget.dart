@@ -66,7 +66,7 @@ class DonorListWidget extends StatelessWidget {
                         medicalReport: donors[index].medicalReport,
                         bloodGroup: donors[index].bloodGroup,
                         contactNumber: donors[index].contactNumber,
-                        latestDonationDate: (donors[index].latestDonationDate != null) ? donors[index].latestDonationDate!.toUtc().toString().substring(0, 10) : "-",
+                        latestDonationDate: (donors[index].latestDonationDate != null) ? donors[index].latestDonationDate!.substring(0, 10) : "-",
                       );
                     },
                     itemCount: donors.length,

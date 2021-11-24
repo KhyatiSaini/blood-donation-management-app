@@ -6,6 +6,7 @@ import 'pages/containerScreen.dart';
 import 'providers/adminProvider.dart';
 import 'providers/donorProvider.dart';
 import 'providers/patientProvider.dart';
+import 'providers/donationProvider.dart';
 import 'providers/bloodBankProvider.dart';
 
 Future main() async {
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => BloodBankProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => DonationProvider(),
         ),
       ],
       child: MaterialApp(
