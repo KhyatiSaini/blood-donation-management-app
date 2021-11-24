@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.bottomRight,
               child:
               Image(image: AssetImage('assets/images/background.jpg'))),
-          Align(alignment: Alignment.centerLeft, child: showSignIn ? SignInCard(callback: switchCard) : SignUpCard(callback: switchCard)),
+          Visibility(visible: false, child: Align(alignment: Alignment.centerLeft, child: showSignIn ? SignInCard(callback: switchCard) : SignUpCard(callback: switchCard))),
         ],
       ),
     );

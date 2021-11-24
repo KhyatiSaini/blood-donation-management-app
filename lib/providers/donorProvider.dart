@@ -59,7 +59,7 @@ class DonorProvider extends ChangeNotifier {
     }
   }
 
-  Future updateDonorRecordById(String id, DateTime date) async {
+  Future updateDonorRecordById(String id, String date) async {
     try {
       final response = await put(
         Uri.parse('${api}donors/$id'),

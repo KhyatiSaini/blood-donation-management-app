@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
@@ -155,8 +156,8 @@ class _AddRecordWidgetState extends State<AddRecordWidget> {
                 child: MaterialButton(
                   onPressed: () async {
                     if (donorId.isNotEmpty && patientId.isNotEmpty && bloodBankName.isNotEmpty) {
-                      DateTime date = DateTime.now().toUtc();
-                      Donation donation = Donation(int.parse(donorId), int.parse(patientId), bloodBankName, date.toString().substring(0, 10));
+                      String date = DateTime.now().toUtc().toString().substring(0, 10);
+                      Donation donation = Donation(int.parse(donorId), int.parse(patientId), bloodBankName, date);
                       final donationProvider = Provider.of<DonationProvider>(context, listen: false);
                       final donorProvider = Provider.of<DonorProvider>(context, listen: false);
 
