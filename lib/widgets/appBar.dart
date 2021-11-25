@@ -81,7 +81,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 child: AppBarTextContainer(
                     'Admin', index == 4 ? Colors.grey.shade300 : Colors.grey),
               ),
-              SizedBox(width: 980),
+              SizedBox(width: 940),
               Consumer<AdminProvider>(
                 builder: (context, provider, child) {
                   return Visibility(

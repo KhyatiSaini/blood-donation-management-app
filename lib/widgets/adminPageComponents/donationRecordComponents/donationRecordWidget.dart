@@ -31,7 +31,7 @@ class DonationRecordWidget extends StatelessWidget {
                     backgroundColor: Colors.redAccent,
                     child: IconButton(
                       onPressed: () {
-                        callback(adminPageWidget.selection);
+                        callback(AdminPageWidget.selection);
                       },
                       icon: Icon(
                         Icons.arrow_back,
@@ -59,31 +59,41 @@ class DonationRecordWidget extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            RecordHeaderRow(),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              height: MediaQuery.of(context).size.height * 0.6,
-              child: Consumer<DonationProvider>(
-                builder: (context, provider, child) {
-                  provider.fetchDonations();
-                  final bool isListFetched = provider.isListFetched;
-                  List<Donation> donations = [];
-                  if (isListFetched) {
-                    donations = provider.donations;
-                  }
+            SingleChildScrollView(
+              child: Container(
+                width: 1500,
+                child: Column(
+                  children: [
+                    RecordHeaderRow(),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      child: Consumer<DonationProvider>(
+                        builder: (context, provider, child) {
+                          provider.fetchDonations();
+                          final bool isListFetched = provider.isListFetched;
+                          List<Donation> donations = [];
+                          if (isListFetched) {
+                            donations = provider.donations;
+                          }
 
-                  return ListView.builder(
-                    itemBuilder: (context, index) {
-                      return RecordRowContainer(
-                        donorId: donations[index].donorId.toString(),
-                        patientId: donations[index].patientId.toString(),
-                        bloodBank: donations[index].bloodBank,
-                        date: donations[index].date,
-                      );
-                    },
-                    itemCount: donations.length,
-                  );
-                }
+                          return ListView.builder(
+                            itemBuilder: (context, index) {
+                              return RecordRowContainer(
+                                donorId: donations[index].donorId.toString(),
+                                patientId:
+                                    donations[index].patientId.toString(),
+                                bloodBank: donations[index].bloodBank,
+                                date: donations[index].date,
+                              );
+                            },
+                            itemCount: donations.length,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(

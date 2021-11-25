@@ -27,7 +27,7 @@ class PatientsListWidget extends StatelessWidget {
                 radius: 30,
                 backgroundColor: Colors.redAccent,
                 child: IconButton(
-                  onPressed: () => callback(adminPageWidget.selection),
+                  onPressed: () => callback(AdminPageWidget.selection),
                   icon: Icon(
                     Icons.arrow_back,
                     color: Colors.white,
@@ -44,32 +44,42 @@ class PatientsListWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            PatientHeaderRow(),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              height: MediaQuery.of(context).size.height * 0.6,
-              child: Consumer<PatientProvider>(
-                builder: (context, patientProvider, child) {
-                  patientProvider.fetchPatients();
-                  final bool isListFetched = patientProvider.isListFetched;
-                  List<Patient> patients = [];
+            SingleChildScrollView(
+              child: Container(
+                width: 2000,
+                child: Column(
+                  children: [
+                    PatientHeaderRow(),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      child: Consumer<PatientProvider>(
+                        builder: (context, patientProvider, child) {
+                          patientProvider.fetchPatients();
+                          final bool isListFetched =
+                              patientProvider.isListFetched;
+                          List<Patient> patients = [];
 
-                  if (isListFetched) {
-                    patients = patientProvider.patients;
-                  }
+                          if (isListFetched) {
+                            patients = patientProvider.patients;
+                          }
 
-                  return ListView.builder(
-                    itemBuilder: (context, index) {
-                      return PatientRowContainer(
-                        id: patients[index].id.toString(),
-                        name: patients[index].name,
-                        medicalReport: patients[index].medicalCondition,
-                        bloodGroup: patients[index].bloodGroup,
-                      );
-                    },
-                    itemCount: patients.length,
-                  );
-                }
+                          return ListView.builder(
+                            itemBuilder: (context, index) {
+                              return PatientRowContainer(
+                                id: patients[index].id.toString(),
+                                name: patients[index].name,
+                                medicalReport: patients[index].medicalCondition,
+                                bloodGroup: patients[index].bloodGroup,
+                              );
+                            },
+                            itemCount: patients.length,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(

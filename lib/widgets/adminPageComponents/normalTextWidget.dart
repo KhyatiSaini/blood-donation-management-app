@@ -16,6 +16,7 @@ class NormalTextWidget extends StatelessWidget {
         letterSpacing: 1,
         overflow: TextOverflow.fade,
       ),
+      textAlign: TextAlign.center,
     );
   }
 }

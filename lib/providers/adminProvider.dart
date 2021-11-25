@@ -4,7 +4,7 @@ import '../utilities/constants.dart';
 import '../utilities/displayToast.dart';
 
 class AdminProvider extends ChangeNotifier {
-  bool isSignedIn = false;
+  bool isSignedIn = true;
 
   bool adminSignIn(String admin, String password) {
     if (admin == adminName && password == adminPassword) {

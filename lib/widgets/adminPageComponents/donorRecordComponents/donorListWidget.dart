@@ -27,7 +27,7 @@ class DonorListWidget extends StatelessWidget {
                 radius: 30,
                 backgroundColor: Colors.redAccent,
                 child: IconButton(
-                  onPressed: () => callback(adminPageWidget.selection),
+                  onPressed: () => callback(AdminPageWidget.selection),
                   icon: Icon(
                     Icons.arrow_back,
                     color: Colors.white,
@@ -44,34 +44,47 @@ class DonorListWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            DonorHeaderRow(),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              height: MediaQuery.of(context).size.height * 0.6,
-              child: Consumer<DonorProvider>(
-                builder: (context, donorProvider, child) {
-                  donorProvider.fetchDonors();
-                  final bool isListFetched = donorProvider.isListFetched;
-                  List<Donor> donors = [];
+            SingleChildScrollView(
+              child: Container(
+                width: 1500,
+                child: Column(
+                  children: [
+                    DonorHeaderRow(),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      child: Consumer<DonorProvider>(
+                          builder: (context, donorProvider, child) {
+                        donorProvider.fetchDonors();
+                        final bool isListFetched = donorProvider.isListFetched;
+                        List<Donor> donors = [];
 
-                  if (isListFetched) {
-                    donors = donorProvider.donors;
-                  }
+                        if (isListFetched) {
+                          donors = donorProvider.donors;
+                        }
 
-                  return ListView.builder(
-                    itemBuilder: (context, index) {
-                      return DonorRowContainer(
-                        id: donors[index].id.toString(),
-                        name: donors[index].name,
-                        medicalReport: donors[index].medicalReport,
-                        bloodGroup: donors[index].bloodGroup,
-                        contactNumber: donors[index].contactNumber,
-                        latestDonationDate: (donors[index].latestDonationDate != null) ? donors[index].latestDonationDate!.substring(0, 10) : "-",
-                      );
-                    },
-                    itemCount: donors.length,
-                  );
-                }
+                        return ListView.builder(
+                          itemBuilder: (context, index) {
+                            return DonorRowContainer(
+                              id: donors[index].id.toString(),
+                              name: donors[index].name,
+                              medicalReport: donors[index].medicalReport,
+                              bloodGroup: donors[index].bloodGroup,
+                              contactNumber: donors[index].contactNumber,
+                              latestDonationDate:
+                                  (donors[index].latestDonationDate != null)
+                                      ? donors[index]
+                                          .latestDonationDate!
+                                          .substring(0, 10)
+                                      : "-",
+                            );
+                          },
+                          itemCount: donors.length,
+                        );
+                      }),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(

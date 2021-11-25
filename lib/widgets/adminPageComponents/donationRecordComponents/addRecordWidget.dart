@@ -43,45 +43,49 @@ class _AddRecordWidgetState extends State<AddRecordWidget> {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Container(
-          width: 1200,
+          width: 1300,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 width: 300,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                margin: EdgeInsets.only(left: 20),
                 child: Consumer<DonorProvider>(
-                  builder: (context, provider, child) {
-                    provider.fetchDonors();
-                    final bool isListFetched = provider.isListFetched;
-                    final List<String> donorIds = [];
-                    if (isListFetched) {
-                      final List<Donor> donors = provider.donors;
-                      for (int i = 0; i < donors.length; i++) {
-                        if (donors[i].latestDonationDate != null && formatDate(donors[i].latestDonationDate!).difference(DateTime.now()).inDays >= 90) {
-                          donorIds.add(donors[i].id.toString());
-                        }
-                        else if (donors[i].latestDonationDate == null) {
-                          donorIds.add(donors[i].id.toString());
-                        }
+                    builder: (context, provider, child) {
+                  provider.fetchDonors();
+                  final bool isListFetched = provider.isListFetched;
+                  final List<String> donorIds = [];
+                  if (isListFetched) {
+                    final List<Donor> donors = provider.donors;
+                    for (int i = 0; i < donors.length; i++) {
+                      if (donors[i].latestDonationDate != null &&
+                          formatDate(donors[i].latestDonationDate!)
+                                  .difference(DateTime.now())
+                                  .inDays >=
+                              90) {
+                        donorIds.add(donors[i].id.toString());
+                      } else if (donors[i].latestDonationDate == null) {
+                        donorIds.add(donors[i].id.toString());
                       }
                     }
-
-                    return DropdownSearch<String>(
-                      mode: Mode.MENU,
-                      showSelectedItems: true,
-                      items: donorIds,
-                      onChanged: (selectedId) {
-                        donorId = selectedId!;
-                      },
-                      dropdownSearchDecoration: InputDecoration(
-                        hintText: 'donor id'.toUpperCase(),
-                      ),
-                    );
                   }
-                ),
+
+                  return DropdownSearch<String>(
+                    mode: Mode.MENU,
+                    showSelectedItems: true,
+                    items: donorIds,
+                    onChanged: (selectedId) {
+                      donorId = selectedId!;
+                    },
+                    dropdownSearchDecoration: InputDecoration(
+                      hintText: 'donor id'.toUpperCase(),
+                    ),
+                  );
+                }),
               ),
               SizedBox(width: 15),
               Container(
@@ -90,30 +94,29 @@ class _AddRecordWidgetState extends State<AddRecordWidget> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10)),
                 child: Consumer<PatientProvider>(
-                  builder: (context, provider, child) {
-                    provider.fetchPatients();
-                    final bool isListFetched = provider.isListFetched;
-                    final List<String> patientIds = [];
-                    if (isListFetched) {
-                      final List<Patient> patients = provider.patients;
-                      for (int i = 0; i < patients.length; i++) {
-                        patientIds.add(patients[i].id.toString());
-                      }
+                    builder: (context, provider, child) {
+                  provider.fetchPatients();
+                  final bool isListFetched = provider.isListFetched;
+                  final List<String> patientIds = [];
+                  if (isListFetched) {
+                    final List<Patient> patients = provider.patients;
+                    for (int i = 0; i < patients.length; i++) {
+                      patientIds.add(patients[i].id.toString());
                     }
-
-                    return DropdownSearch<String>(
-                      mode: Mode.MENU,
-                      showSelectedItems: true,
-                      items: patientIds,
-                      onChanged: (selectedId) {
-                        patientId = selectedId!;
-                      },
-                      dropdownSearchDecoration: InputDecoration(
-                        hintText: 'Patient id'.toUpperCase(),
-                      ),
-                    );
                   }
-                ),
+
+                  return DropdownSearch<String>(
+                    mode: Mode.MENU,
+                    showSelectedItems: true,
+                    items: patientIds,
+                    onChanged: (selectedId) {
+                      patientId = selectedId!;
+                    },
+                    dropdownSearchDecoration: InputDecoration(
+                      hintText: 'Patient id'.toUpperCase(),
+                    ),
+                  );
+                }),
               ),
               SizedBox(width: 15),
               Container(
@@ -122,52 +125,60 @@ class _AddRecordWidgetState extends State<AddRecordWidget> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10)),
                 child: Consumer<BloodBankProvider>(
-                  builder: (context, provider, child) {
-                    provider.fetchBloodBanks();
-                    final bool isListFetched = provider.isListFetched;
-                    final List<String> bloodBankNames = [];
-                    if (isListFetched) {
-                      final List<BloodBank> bloodBank = provider.bloodBanks;
-                      for (int i = 0; i < bloodBank.length; i++) {
-                        bloodBankNames.add(bloodBank[i].name);
-                      }
+                    builder: (context, provider, child) {
+                  provider.fetchBloodBanks();
+                  final bool isListFetched = provider.isListFetched;
+                  final List<String> bloodBankNames = [];
+                  if (isListFetched) {
+                    final List<BloodBank> bloodBank = provider.bloodBanks;
+                    for (int i = 0; i < bloodBank.length; i++) {
+                      bloodBankNames.add(bloodBank[i].name);
                     }
-
-                    return DropdownSearch<String>(
-                      mode: Mode.MENU,
-                      showSelectedItems: true,
-                      items: bloodBankNames,
-                      onChanged: (selectedId) {
-                        bloodBankName = selectedId!;
-                      },
-                      dropdownSearchDecoration: InputDecoration(
-                        hintText: 'Blood bank'.toUpperCase(),
-                      ),
-                    );
                   }
-                ),
+
+                  return DropdownSearch<String>(
+                    mode: Mode.MENU,
+                    showSelectedItems: true,
+                    items: bloodBankNames,
+                    onChanged: (selectedId) {
+                      bloodBankName = selectedId!;
+                    },
+                    dropdownSearchDecoration: InputDecoration(
+                      hintText: 'Blood bank'.toUpperCase(),
+                    ),
+                  );
+                }),
               ),
               SizedBox(width: 50),
               Container(
                 width: 200,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                margin: EdgeInsets.only(
+                  right: 20,
+                ),
                 child: MaterialButton(
                   onPressed: () async {
-                    if (donorId.isNotEmpty && patientId.isNotEmpty && bloodBankName.isNotEmpty) {
-                      String date = DateTime.now().toUtc().toString().substring(0, 10);
-                      Donation donation = Donation(int.parse(donorId), int.parse(patientId), bloodBankName, date);
-                      final donationProvider = Provider.of<DonationProvider>(context, listen: false);
-                      final donorProvider = Provider.of<DonorProvider>(context, listen: false);
+                    if (donorId.isNotEmpty &&
+                        patientId.isNotEmpty &&
+                        bloodBankName.isNotEmpty) {
+                      String date =
+                          DateTime.now().toUtc().toString().substring(0, 10);
+                      Donation donation = Donation(int.parse(donorId),
+                          int.parse(patientId), bloodBankName, date);
+                      final donationProvider =
+                          Provider.of<DonationProvider>(context, listen: false);
+                      final donorProvider =
+                          Provider.of<DonorProvider>(context, listen: false);
 
-                      bool result = await donationProvider.createDonation(donation.toJson());
+                      bool result = await donationProvider
+                          .createDonation(donation.toJson());
                       if (result) {
                         donorProvider.updateDonorRecordById(donorId, date);
                       }
-
-                    }
-                    else {
+                    } else {
                       displayToast("select all the details");
                     }
                   },

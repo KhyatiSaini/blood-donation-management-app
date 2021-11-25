@@ -16,26 +16,38 @@ class PatientHeaderRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            width: 200,
-            child: HeaderTextWidget(text: 'id'),
-          ),
-          Container(
-            width: 200,
-            child: HeaderTextWidget(
-              text: 'name',
+          Expanded(
+            child: Container(
+              width: 200,
+              alignment: Alignment.center,
+              child: HeaderTextWidget(text: 'id'),
             ),
           ),
-          Container(
-            width: 200,
-            child: HeaderTextWidget(
-              text: 'medical report',
+          Expanded(
+            child: Container(
+              width: 200,
+              alignment: Alignment.center,
+              child: HeaderTextWidget(
+                text: 'name',
+              ),
             ),
           ),
-          Container(
-            width: 200,
-            child: HeaderTextWidget(
-              text: 'blood group',
+          Expanded(
+            child: Container(
+              width: 200,
+              alignment: Alignment.center,
+              child: HeaderTextWidget(
+                text: 'medical report',
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              width: 200,
+              alignment: Alignment.center,
+              child: HeaderTextWidget(
+                text: 'blood group',
+              ),
             ),
           ),
         ],

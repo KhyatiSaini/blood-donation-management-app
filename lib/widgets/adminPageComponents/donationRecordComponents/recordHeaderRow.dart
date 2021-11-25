@@ -16,28 +16,36 @@ class RecordHeaderRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            width: 200,
-            child: HeaderTextWidget(
-              text: 'donor id',
+          Expanded(
+            child: Container(
+              width: 200,
+              child: HeaderTextWidget(
+                text: 'donor id',
+              ),
             ),
           ),
-          Container(
-            width: 200,
-            child: HeaderTextWidget(
-              text: 'patient id',
+          Expanded(
+            child: Container(
+              width: 200,
+              child: HeaderTextWidget(
+                text: 'patient id',
+              ),
             ),
           ),
-          Container(
-            width: 200,
-            child: HeaderTextWidget(
-              text: 'blood bank',
+          Expanded(
+            child: Container(
+              width: 200,
+              child: HeaderTextWidget(
+                text: 'blood bank',
+              ),
             ),
           ),
-          Container(
-            width: 200,
-            child: HeaderTextWidget(
-              text: 'date',
+          Expanded(
+            child: Container(
+              width: 200,
+              child: HeaderTextWidget(
+                text: 'date',
+              ),
             ),
           ),
         ],

@@ -34,28 +34,40 @@ class RecordRowContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              width: 200,
-              child: NormalTextWidget(
-                text: donorId,
+            Expanded(
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                child: NormalTextWidget(
+                  text: donorId,
+                ),
               ),
             ),
-            Container(
-              width: 200,
-              child: NormalTextWidget(
-                text: patientId,
+            Expanded(
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                child: NormalTextWidget(
+                  text: patientId,
+                ),
               ),
             ),
-            Container(
-              width: 200,
-              child: NormalTextWidget(
-                text: bloodBank,
+            Expanded(
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                child: NormalTextWidget(
+                  text: bloodBank,
+                ),
               ),
             ),
-            Container(
-              width: 200,
-              child: NormalTextWidget(
-                text: date,
+            Expanded(
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                child: NormalTextWidget(
+                  text: date,
+                ),
               ),
             ),
           ],

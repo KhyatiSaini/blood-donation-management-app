@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/homePageComponents/signInCard.dart';
 import '../widgets/homePageComponents/signUpCard.dart';
+import '../widgets/homePageComponents/infoButtonGroupWidget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,10 +27,24 @@ class _HomePageState extends State<HomePage> {
       child: Stack(
         children: [
           Align(
-              alignment: Alignment.bottomRight,
-              child:
-              Image(image: AssetImage('assets/images/background.jpg'))),
-          Visibility(visible: false, child: Align(alignment: Alignment.centerLeft, child: showSignIn ? SignInCard(callback: switchCard) : SignUpCard(callback: switchCard))),
+            alignment: Alignment.centerRight,
+            child: Image(
+              image: AssetImage('assets/images/background.jpg'),
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: InfoButtonGroupWidget(),
+          ),
+          Visibility(
+            visible: false,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: showSignIn
+                  ? SignInCard(callback: switchCard)
+                  : SignUpCard(callback: switchCard),
+            ),
+          ),
         ],
       ),
     );

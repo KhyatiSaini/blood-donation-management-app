@@ -33,28 +33,40 @@ class PatientRowContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              width: 200,
-              child: NormalTextWidget(
-                text: id,
+            Expanded(
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                child: NormalTextWidget(
+                  text: id,
+                ),
               ),
             ),
-            Container(
-              width: 200,
-              child: NormalTextWidget(
-                text: name,
+            Expanded(
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                child: NormalTextWidget(
+                  text: name,
+                ),
               ),
             ),
-            Container(
-              width: 200,
-              child: NormalTextWidget(
-                text: medicalReport,
+            Expanded(
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                child: NormalTextWidget(
+                  text: medicalReport,
+                ),
               ),
             ),
-            Container(
-              width: 200,
-              child: NormalTextWidget(
-                text: bloodGroup,
+            Expanded(
+              child: Container(
+                width: 200,
+                alignment: Alignment.center,
+                child: NormalTextWidget(
+                  text: bloodGroup,
+                ),
               ),
             ),
           ],

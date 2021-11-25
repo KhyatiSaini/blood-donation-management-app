@@ -37,40 +37,58 @@ class DonorRowContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              width: 150,
-              child: NormalTextWidget(
-                text: id,
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                width: 150,
+                child: NormalTextWidget(
+                  text: id,
+                ),
               ),
             ),
-            Container(
-              width: 150,
-              child: NormalTextWidget(
-                text: name,
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                width: 150,
+                child: NormalTextWidget(
+                  text: name,
+                ),
               ),
             ),
-            Container(
-              width: 150,
-              child: NormalTextWidget(
-                text: medicalReport,
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                width: 150,
+                child: NormalTextWidget(
+                  text: medicalReport,
+                ),
               ),
             ),
-            Container(
-              width: 150,
-              child: NormalTextWidget(
-                text: bloodGroup,
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                width: 150,
+                child: NormalTextWidget(
+                  text: bloodGroup,
+                ),
               ),
             ),
-            Container(
-              width: 150,
-              child: NormalTextWidget(
-                text: contactNumber,
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                width: 150,
+                child: NormalTextWidget(
+                  text: contactNumber,
+                ),
               ),
             ),
-            Container(
-              width: 150,
-              child: NormalTextWidget(
-                text: latestDonationDate,
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                width: 150,
+                child: NormalTextWidget(
+                  text: latestDonationDate,
+                ),
               ),
             ),
           ],

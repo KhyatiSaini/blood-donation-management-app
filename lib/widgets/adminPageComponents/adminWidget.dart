@@ -13,7 +13,7 @@ class AdminWidget extends StatefulWidget {
 }
 
 class _AdminWidgetState extends State<AdminWidget> {
-  adminPageWidget pageWidget = adminPageWidget.selection;
+  AdminPageWidget pageWidget = AdminPageWidget.selection;
 
   @override
   void initState() {
@@ -23,20 +23,20 @@ class _AdminWidgetState extends State<AdminWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: (pageWidget == adminPageWidget.patient
+      child: (pageWidget == AdminPageWidget.patient
           ? PatientsListWidget(
               callback: updateUI,
             )
-          : (pageWidget == adminPageWidget.donor
+          : (pageWidget == AdminPageWidget.donor
               ? DonorListWidget(
                   callback: updateUI,
                 )
-              : (pageWidget == adminPageWidget.bloodBank)
+              : (pageWidget == AdminPageWidget.bloodBank)
                   ? BloodBankListWidget(
                       displayBackButton: true,
                       callback: updateUI,
                     )
-                  : (pageWidget == adminPageWidget.donationRecord)
+                  : (pageWidget == AdminPageWidget.donationRecord)
                       ? DonationRecordWidget(
                           callback: updateUI,
                         )
@@ -46,7 +46,7 @@ class _AdminWidgetState extends State<AdminWidget> {
     );
   }
 
-  updateUI(adminPageWidget widget) {
+  updateUI(AdminPageWidget widget) {
     setState(() {
       pageWidget = widget;
     });

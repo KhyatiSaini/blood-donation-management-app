@@ -23,23 +23,23 @@ class BloodBankListWidget extends StatelessWidget {
         child: Column(
           children: [
             if (displayBackButton)
-            Container(
-              alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(left: 20, top: 20),
-              child: CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.redAccent,
-                child: IconButton(
-                  onPressed: () {
-                    callback!(adminPageWidget.selection);
-                  },
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
+              Container(
+                alignment: Alignment.topLeft,
+                margin: EdgeInsets.only(left: 20, top: 20),
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.redAccent,
+                  child: IconButton(
+                    onPressed: () {
+                      callback!(AdminPageWidget.selection);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
-            ),
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(left: 20, top: 20),
@@ -53,32 +53,45 @@ class BloodBankListWidget extends StatelessWidget {
                 ),
               ),
             ),
-            BloodBankHeaderRow(),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              height: MediaQuery.of(context).size.height * 0.6,
-              child: Consumer<BloodBankProvider>(
-                builder: (context, bloodBankProvider, child) {
-                  bloodBankProvider.fetchBloodBanks();
-                  final bool isListFetched = bloodBankProvider.isListFetched;
-                  List<BloodBank> bloodBanks = [];
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Container(
+                width: 1500,
+                child: Column(
+                  children: [
+                    BloodBankHeaderRow(),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      child: Consumer<BloodBankProvider>(
+                        builder: (context, bloodBankProvider, child) {
+                          bloodBankProvider.fetchBloodBanks();
+                          final bool isListFetched =
+                              bloodBankProvider.isListFetched;
+                          List<BloodBank> bloodBanks = [];
 
-                  if (isListFetched) {
-                    bloodBanks = bloodBankProvider.bloodBanks;
-                  }
+                          if (isListFetched) {
+                            bloodBanks = bloodBankProvider.bloodBanks;
+                          }
 
-                  return ListView.builder(
-                    itemBuilder: (context, index) {
-                      return BloodBankRowContainer(
-                        name: bloodBanks[index].name,
-                        staffDetails: bloodBanks[index].staffDetails.toString(),
-                        operatingHours: bloodBanks[index].operatingHours,
-                        address: bloodBanks[index].address,
-                      );
-                    },
-                    itemCount: bloodBanks.length,
-                  );
-                }
+                          return ListView.builder(
+                            itemBuilder: (context, index) {
+                              return BloodBankRowContainer(
+                                name: bloodBanks[index].name,
+                                staffDetails:
+                                    bloodBanks[index].staffDetails.toString(),
+                                operatingHours:
+                                    bloodBanks[index].operatingHours,
+                                address: bloodBanks[index].address,
+                              );
+                            },
+                            itemCount: bloodBanks.length,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(

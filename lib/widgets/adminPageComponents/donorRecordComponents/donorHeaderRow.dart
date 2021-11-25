@@ -16,40 +16,58 @@ class DonorHeaderRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            width: 150,
-            child: HeaderTextWidget(
-              text: 'id',
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              width: 150,
+              child: HeaderTextWidget(
+                text: 'id',
+              ),
             ),
           ),
-          Container(
-            width: 150,
-            child: HeaderTextWidget(
-              text: 'name',
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              width: 150,
+              child: HeaderTextWidget(
+                text: 'name',
+              ),
             ),
           ),
-          Container(
-            width: 150,
-            child: HeaderTextWidget(
-              text: 'medical condition',
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              width: 150,
+              child: HeaderTextWidget(
+                text: 'medical condition',
+              ),
             ),
           ),
-          Container(
-            width: 150,
-            child: HeaderTextWidget(
-              text: 'blood group',
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              width: 150,
+              child: HeaderTextWidget(
+                text: 'blood group',
+              ),
             ),
           ),
-          Container(
-            width: 150,
-            child: HeaderTextWidget(
-              text: 'contact number',
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              width: 150,
+              child: HeaderTextWidget(
+                text: 'contact number',
+              ),
             ),
           ),
-          Container(
-            width: 150,
-            child: HeaderTextWidget(
-              text: 'latest donation date',
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              width: 150,
+              child: HeaderTextWidget(
+                text: 'latest donation date',
+              ),
             ),
           )
         ],
