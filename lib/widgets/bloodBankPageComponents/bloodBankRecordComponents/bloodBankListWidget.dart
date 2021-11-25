@@ -74,7 +74,7 @@ class BloodBankListWidget extends StatelessWidget {
                             bloodBanks = bloodBankProvider.bloodBanks;
                           }
 
-                          return ListView.builder(
+                          return (isListFetched) ? ListView.builder(
                             itemBuilder: (context, index) {
                               return BloodBankRowContainer(
                                 name: bloodBanks[index].name,
@@ -86,6 +86,11 @@ class BloodBankListWidget extends StatelessWidget {
                               );
                             },
                             itemCount: bloodBanks.length,
+                          ) : Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.redAccent,
+                              strokeWidth: 5,
+                            ),
                           );
                         },
                       ),

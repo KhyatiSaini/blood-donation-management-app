@@ -64,7 +64,7 @@ class PatientsListWidget extends StatelessWidget {
                             patients = patientProvider.patients;
                           }
 
-                          return ListView.builder(
+                          return (isListFetched) ? ListView.builder(
                             itemBuilder: (context, index) {
                               return PatientRowContainer(
                                 id: patients[index].id.toString(),
@@ -74,6 +74,11 @@ class PatientsListWidget extends StatelessWidget {
                               );
                             },
                             itemCount: patients.length,
+                          ) : Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.redAccent,
+                              strokeWidth: 5,
+                            ),
                           );
                         },
                       ),

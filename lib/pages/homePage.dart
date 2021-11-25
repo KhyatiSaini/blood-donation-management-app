@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
       child: Stack(
         children: [
           Align(
-            alignment: Alignment.centerRight,
+            alignment: Alignment.bottomRight,
             child: Image(
               image: AssetImage('assets/images/background.jpg'),
             ),

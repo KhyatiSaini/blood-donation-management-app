@@ -11,8 +11,11 @@ class AppBarTextContainer extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 5),
       child: Text(
         text.toUpperCase(),
-        style:
-            TextStyle(fontSize: 17, fontWeight: FontWeight.w400, color: color),
+        style: TextStyle(
+          fontSize: 17,
+          fontWeight: FontWeight.w400,
+          color: color,
+        ),
       ),
     );
   }

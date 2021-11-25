@@ -1,7 +1,7 @@
-import 'package:blood_donation_management_app/providers/adminProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/adminProvider.dart';
 import '../widgets/adminPageComponents/adminWidget.dart';
 import '../widgets/adminPageComponents/adminLoginCard.dart';
 

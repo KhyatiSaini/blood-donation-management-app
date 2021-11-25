@@ -1,4 +1,4 @@
 const adminName = 'admin';
 const adminPassword = 'password';
 
-const api = 'http://localhost:3000/';
+const api = 'https://blood-donation-management-api.herokuapp.com/';

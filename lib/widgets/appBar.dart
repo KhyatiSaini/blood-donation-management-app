@@ -36,23 +36,25 @@ class _CustomAppBarState extends State<CustomAppBar> {
               AppBarTitleContainer('Blood Donation Management'),
               SizedBox(width: 15),
               GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      index = 0;
-                    });
-                    widget.callback(index);
-                  },
-                  child: AppBarTextContainer(
-                      'Home', index == 0 ? Colors.grey.shade300 : Colors.grey)),
+                onTap: () {
+                  setState(() {
+                    index = 0;
+                  });
+                  widget.callback(index);
+                },
+                child: AppBarTextContainer(
+                    'Home', index == 0 ? Colors.grey.shade300 : Colors.grey),
+              ),
               GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      index = 1;
-                    });
-                    widget.callback(index);
-                  },
-                  child: AppBarTextContainer('Donor',
-                      index == 1 ? Colors.grey.shade300 : Colors.grey)),
+                onTap: () {
+                  setState(() {
+                    index = 1;
+                  });
+                  widget.callback(index);
+                },
+                child: AppBarTextContainer(
+                    'Donor', index == 1 ? Colors.grey.shade300 : Colors.grey),
+              ),
               GestureDetector(
                   onTap: () {
                     setState(() {
@@ -63,14 +65,15 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   child: AppBarTextContainer('Patient',
                       index == 2 ? Colors.grey.shade300 : Colors.grey)),
               GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      index = 3;
-                    });
-                    widget.callback(index);
-                  },
-                  child: AppBarTextContainer('Blood Bank',
-                      index == 3 ? Colors.grey.shade300 : Colors.grey)),
+                onTap: () {
+                  setState(() {
+                    index = 3;
+                  });
+                  widget.callback(index);
+                },
+                child: AppBarTextContainer('Blood Bank',
+                    index == 3 ? Colors.grey.shade300 : Colors.grey),
+              ),
               GestureDetector(
                 onTap: () {
                   setState(() {
@@ -79,38 +82,38 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   widget.callback(index);
                 },
                 child: AppBarTextContainer(
-                    'Admin', index == 4 ? Colors.grey.shade300 : Colors.grey),
+                  'Admin',
+                  index == 4 ? Colors.grey.shade300 : Colors.grey,
+                ),
               ),
               SizedBox(width: 940),
-              Consumer<AdminProvider>(
-                builder: (context, provider, child) {
-                  return Visibility(
-                    visible: provider.isSignedIn,
-                    child: GestureDetector(
-                      onTap: () {
-                        provider.adminSignOut();
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.all(10),
-                        height: 40,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: Colors.redAccent,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Text(
-                          'logout'.toUpperCase(),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                          ),
+              Consumer<AdminProvider>(builder: (context, provider, child) {
+                return Visibility(
+                  visible: provider.isSignedIn,
+                  child: GestureDetector(
+                    onTap: () {
+                      provider.adminSignOut();
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.all(10),
+                      height: 40,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Text(
+                        'logout'.toUpperCase(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
                         ),
                       ),
                     ),
-                  );
-                }
-              ),
+                  ),
+                );
+              }),
               SizedBox(width: 10),
             ],
           ),

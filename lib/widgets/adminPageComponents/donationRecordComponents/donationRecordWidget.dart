@@ -55,15 +55,15 @@ class DonationRecordWidget extends StatelessWidget {
                 ),
               ],
             ),
-            AddRecordWidget(),
-            SizedBox(
-              height: 20,
-            ),
             SingleChildScrollView(
               child: Container(
                 width: 1500,
                 child: Column(
                   children: [
+                    AddRecordWidget(),
+                    SizedBox(
+                      height: 20,
+                    ),
                     RecordHeaderRow(),
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 50),
@@ -77,17 +77,22 @@ class DonationRecordWidget extends StatelessWidget {
                             donations = provider.donations;
                           }
 
-                          return ListView.builder(
+                          return (isListFetched) ? ListView.builder(
                             itemBuilder: (context, index) {
                               return RecordRowContainer(
                                 donorId: donations[index].donorId.toString(),
                                 patientId:
                                     donations[index].patientId.toString(),
                                 bloodBank: donations[index].bloodBank,
-                                date: donations[index].date,
+                                date: donations[index].date.substring(0, 10),
                               );
                             },
                             itemCount: donations.length,
+                          ) : Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.redAccent,
+                              strokeWidth: 5,
+                            ),
                           );
                         },
                       ),

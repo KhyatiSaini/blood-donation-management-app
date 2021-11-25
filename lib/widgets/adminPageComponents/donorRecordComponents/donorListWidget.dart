@@ -63,7 +63,7 @@ class DonorListWidget extends StatelessWidget {
                           donors = donorProvider.donors;
                         }
 
-                        return ListView.builder(
+                        return (isListFetched) ? ListView.builder(
                           itemBuilder: (context, index) {
                             return DonorRowContainer(
                               id: donors[index].id.toString(),
@@ -80,6 +80,11 @@ class DonorListWidget extends StatelessWidget {
                             );
                           },
                           itemCount: donors.length,
+                        ) : Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.redAccent,
+                            strokeWidth: 5,
+                          ),
                         );
                       }),
                     ),
