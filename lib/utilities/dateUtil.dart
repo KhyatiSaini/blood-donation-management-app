@@ -1,3 +1,4 @@
+/// function to format [Date] from [String]
 DateTime formatDate(String date) {
   final DateTime dateTime = DateTime(
     int.parse(date.substring(0, 4)), // year

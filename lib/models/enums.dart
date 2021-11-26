@@ -1,13 +1,8 @@
-enum AdminPageWidget {
+/// enum for handling the [AdminPageWidget]
+enum AdminPageWidgetType {
   donor,
   patient,
   selection,
   bloodBank,
   donationRecord,
-}
-
-enum InfoWidget{
-  donor,
-  patient,
-  bloodBank
 }

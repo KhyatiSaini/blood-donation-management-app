@@ -10,6 +10,7 @@ class PatientProvider extends ChangeNotifier {
   List<Patient> patients = [];
   bool isListFetched = false;
 
+  /// function to fetch all the patients record from the database
   Future fetchPatients() async {
     List<Patient> list = [];
     try {
@@ -36,6 +37,7 @@ class PatientProvider extends ChangeNotifier {
     }
   }
 
+  /// function to create a new patient in the database
   Future createPatient(Map<dynamic, dynamic> patient) async {
     try {
       final response = await post(
@@ -50,6 +52,7 @@ class PatientProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         displayToast("Data inserted successfully");
+        // call the fetch function to fetch the updated patient records after adding one more patient
         fetchPatients();
       }
       else {

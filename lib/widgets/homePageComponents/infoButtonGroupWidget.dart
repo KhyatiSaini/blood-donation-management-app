@@ -3,20 +3,7 @@ import 'package:flutter/material.dart';
 import 'customButton.dart';
 import '../../utilities/customAlertDialog.dart';
 
-class InfoButtonGroupWidget extends StatefulWidget {
-  @override
-  State<InfoButtonGroupWidget> createState() => _InfoButtonGroupWidgetState();
-}
-
-class _InfoButtonGroupWidgetState extends State<InfoButtonGroupWidget> {
-  late bool showInfo;
-
-  @override
-  void initState() {
-    showInfo = false;
-    super.initState();
-  }
-
+class InfoButtonGroupWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +20,7 @@ class _InfoButtonGroupWidgetState extends State<InfoButtonGroupWidget> {
                 context: context,
                 title: 'Donor',
                 caption:
-                    'One donation can save multiple lives. Here are the facts:',
+                'One donation can save multiple lives. Here are the facts:',
                 points: [
                   'Just 1 donation can save up to 3 lives.',
                   'The average red blood cell transfusion is 3 pints (or 3 whole-blood donations).',

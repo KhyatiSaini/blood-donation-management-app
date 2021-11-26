@@ -10,6 +10,7 @@ class DonorProvider extends ChangeNotifier {
   List<Donor> donors = [];
   bool isListFetched = false;
 
+  /// function to fetch all the donors record form the database
   Future fetchDonors() async {
     List<Donor> list = [];
     try {
@@ -35,6 +36,7 @@ class DonorProvider extends ChangeNotifier {
     }
   }
 
+  /// function to create a new donor in the database
   Future createDonor(Map<dynamic, dynamic> donor) async {
     try {
       final response = await post(
@@ -49,6 +51,7 @@ class DonorProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         displayToast("Data inserted successfully");
+        // call the fetch function to fetch the updated donors records after adding one more donor
         fetchDonors();
       }
       else {
@@ -59,6 +62,7 @@ class DonorProvider extends ChangeNotifier {
     }
   }
 
+  /// function to update the donor's [latest_donation_date]
   Future updateDonorRecordById(String id, String date) async {
     try {
       final response = await put(
@@ -73,6 +77,7 @@ class DonorProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         displayToast("Data updated successfully");
+        // call the fetch function to fetch the updated donors records after updating the donor record
         fetchDonors();
       }
       else {

@@ -35,6 +35,7 @@ class _ContainerScreenState extends State<ContainerScreen> {
     );
   }
 
+  /// function to switch between [pages]
   void changePage(int index) {
     setState(() {
       currentPage = pages[index];

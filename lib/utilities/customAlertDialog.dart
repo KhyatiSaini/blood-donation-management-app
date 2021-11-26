@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// function to show custom alert dialog
 void showAlertDialog({
   required BuildContext context,
   required String title,

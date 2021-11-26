@@ -31,7 +31,7 @@ class BloodBankListWidget extends StatelessWidget {
                   backgroundColor: Colors.redAccent,
                   child: IconButton(
                     onPressed: () {
-                      callback!(AdminPageWidget.selection);
+                      callback!(AdminPageWidgetType.selection);
                     },
                     icon: Icon(
                       Icons.arrow_back,

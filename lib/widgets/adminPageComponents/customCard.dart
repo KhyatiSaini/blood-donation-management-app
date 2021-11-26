@@ -5,7 +5,11 @@ class CustomCard extends StatelessWidget {
   final String caption;
   final VoidCallback onTap;
 
-  CustomCard({required this.imageAsset, required this.caption, required this.onTap});
+  CustomCard({
+    required this.imageAsset,
+    required this.caption,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

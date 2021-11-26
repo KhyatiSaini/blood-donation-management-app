@@ -15,6 +15,7 @@ class Donor {
     this.latestDonationDate,
   );
 
+  /// constructor for constructing a new [Donor] instance from [map] structure
   Donor.fromJson(Map json)
       : id = json['id'],
         name = json['name'],
@@ -23,6 +24,7 @@ class Donor {
         contactNumber = json['contact_number'],
         latestDonationDate = json['latest_donation_date'] as String?;
 
+  /// function to convert [Donor] instance into [map]
   Map toJson() {
     return {
       'id': id,
@@ -34,6 +36,7 @@ class Donor {
     };
   }
 
+  /// function for string representation of [Donor] instance
   @override
   String toString() {
     return 'Donor{id: $id, name: $name, medicalReport: $medicalReport, bloodGroup: $bloodGroup, contactNumber: $contactNumber, latestDonationDate: $latestDonationDate}';

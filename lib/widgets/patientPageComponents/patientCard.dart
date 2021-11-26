@@ -32,7 +32,7 @@ class _PatientCardState extends State<PatientCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width / 3,
+      width: 500,
       height: 2 * MediaQuery.of(context).size.height / 3,
       decoration: BoxDecoration(
         color: Colors.redAccent,

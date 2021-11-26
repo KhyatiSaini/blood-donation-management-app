@@ -27,7 +27,7 @@ class PatientsListWidget extends StatelessWidget {
                 radius: 30,
                 backgroundColor: Colors.redAccent,
                 child: IconButton(
-                  onPressed: () => callback(AdminPageWidget.selection),
+                  onPressed: () => callback(AdminPageWidgetType.selection),
                   icon: Icon(
                     Icons.arrow_back,
                     color: Colors.white,

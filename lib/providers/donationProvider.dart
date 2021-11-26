@@ -10,6 +10,7 @@ class DonationProvider extends ChangeNotifier {
   List<Donation> donations = [];
   bool isListFetched = false;
 
+  /// function to fetch all the donation records from the database
   Future fetchDonations() async {
     List<Donation> list = [];
     try {
@@ -36,6 +37,7 @@ class DonationProvider extends ChangeNotifier {
     }
   }
 
+  /// function to create a new donation record in the database
   Future<bool> createDonation(Map<dynamic, dynamic> donation) async {
     try {
       final response = await post(
@@ -50,6 +52,7 @@ class DonationProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         displayToast("Data inserted successfully");
+        // call the fetch function to fetch the updated donation records after adding a donation
         fetchDonations();
         return true;
       }

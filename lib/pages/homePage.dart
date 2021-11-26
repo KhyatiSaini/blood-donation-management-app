@@ -50,6 +50,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  /// function to switch the [SignInCard] and [SignUpCard]
   void switchCard(bool state) {
     setState(() {
       showSignIn = state;

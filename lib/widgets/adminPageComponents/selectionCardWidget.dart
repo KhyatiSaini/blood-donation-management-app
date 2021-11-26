@@ -30,7 +30,7 @@ class SelectionCardWidget extends StatelessWidget {
                     CustomCard(
                       imageAsset: 'assets/images/patient.jpg',
                       caption: 'Patients',
-                      onTap: () => callback(AdminPageWidget.patient),
+                      onTap: () => callback(AdminPageWidgetType.patient),
                     ),
                     SizedBox(
                       width: 40,
@@ -38,7 +38,7 @@ class SelectionCardWidget extends StatelessWidget {
                     CustomCard(
                       imageAsset: 'assets/images/donor.jpg',
                       caption: 'Donors',
-                      onTap: () => callback(AdminPageWidget.donor),
+                      onTap: () => callback(AdminPageWidgetType.donor),
                     ),
                     SizedBox(
                       width: 40,
@@ -46,7 +46,7 @@ class SelectionCardWidget extends StatelessWidget {
                     CustomCard(
                       imageAsset: 'assets/images/bloodbank.jpg',
                       caption: 'Blood Banks',
-                      onTap: () => callback(AdminPageWidget.bloodBank),
+                      onTap: () => callback(AdminPageWidgetType.bloodBank),
                     ),
                   ],
                 ),
@@ -56,7 +56,7 @@ class SelectionCardWidget extends StatelessWidget {
               height: 40,
             ),
             GestureDetector(
-              onTap: () => callback(AdminPageWidget.donationRecord),
+              onTap: () => callback(AdminPageWidgetType.donationRecord),
               child: Container(
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(10),

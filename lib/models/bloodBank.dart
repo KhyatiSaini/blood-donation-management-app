@@ -11,12 +11,14 @@ class BloodBank {
     this.address,
   );
 
+  /// constructor for constructing a new [BloodBank] instance from [map] structure
   BloodBank.fromJson(Map json)
       : name = json['name'],
         staffDetails = json['staff_details'],
         operatingHours = json['operating_hours'],
         address = json['address'];
 
+  /// function to convert [BloodBank] instance into [map]
   Map toJson() {
     return {
       'name': name,
@@ -26,6 +28,7 @@ class BloodBank {
     };
   }
 
+  /// function for string representation of [BloodBank] instance
   @override
   String toString() {
     return 'BloodBank{name: $name, staffDetails: $staffDetails, operatingHours: $operatingHours, address: $address}';

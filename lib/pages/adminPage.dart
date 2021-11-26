@@ -8,15 +8,18 @@ import '../widgets/adminPageComponents/adminLoginCard.dart';
 class AdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AdminProvider>(context);
 
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       color: Colors.white,
-      child: Align(
-        alignment: Alignment.center,
-        child: (provider.adminAuthStatus) ? AdminWidget() : AdminLoginCard(),
+      child: Consumer<AdminProvider>(
+        builder: (context, provider, child) {
+          return Align(
+            alignment: Alignment.center,
+            child: (provider.adminAuthStatus) ? AdminWidget() : AdminLoginCard(),
+          );
+        }
       ),
     );
   }

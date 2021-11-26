@@ -11,12 +11,14 @@ class Patient {
     this.bloodGroup,
   );
 
+  /// constructor for constructing a new [Patient] instance from [map] structure
   Patient.fromJson(Map json)
       : id = json['id'],
         name = json['name'],
         medicalCondition = json['medical_condition'],
         bloodGroup = json['blood_group'];
 
+  /// function to convert [Patient] instance into [map]
   Map toJson() {
     return {
       'id': id,
@@ -26,6 +28,7 @@ class Patient {
     };
   }
 
+  /// function for string representation of [Patient] instance
   @override
   String toString() {
     return 'Patient{id: $id, name: $name, medicalCondition: $medicalCondition, bloodGroup: $bloodGroup}';

@@ -10,6 +10,7 @@ class BloodBankProvider extends ChangeNotifier {
   List<BloodBank> bloodBanks = [];
   bool isListFetched = false;
 
+  /// function to fetch all the blood banks from the database
   Future fetchBloodBanks() async {
     List<BloodBank> list = [];
     try {
@@ -35,6 +36,7 @@ class BloodBankProvider extends ChangeNotifier {
     }
   }
 
+  /// function to create a new blood bank in the database
   Future createBloodBank(Map<dynamic, dynamic> bloodBank) async {
     try {
       final response = await post(
@@ -49,6 +51,7 @@ class BloodBankProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         displayToast("Data inserted successfully");
+        // call the fetch function to fetch the updated blood banks records after adding one more blood bank
         fetchBloodBanks();
       }
       else {

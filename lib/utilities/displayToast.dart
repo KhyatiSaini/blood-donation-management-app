@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+/// function to display a toast message
 void displayToast(String message) {
   Fluttertoast.showToast(
     msg: message,
